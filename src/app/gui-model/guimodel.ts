@@ -105,6 +105,32 @@ export class GuiModel {
                     ]
                 },
                 {
+                    "id": "ActivityForm",
+                    "title": "Activity",
+                    "url": "/activity",
+                    "formFieldList": [
+                        {
+                            "id": "name",
+                            "type": "text",
+                            "name": "Activity",
+                            "width": 2,
+                            "required": true
+                        },
+                        {
+                            "type": "deleteButton",
+                            "name": "Delete"
+                        },
+                        {
+                            "type": "cancelButton",
+                            "name": "Cancel"
+                        },
+                        {
+                            "type": "okButton",
+                            "name": "Ok"
+                        }
+                    ]
+                },
+                {
                     "id": "AddActivityForm",
                     "title": "Activity",
                     "url": "/friend/:friendKey/activity",
@@ -117,6 +143,14 @@ export class GuiModel {
                             "defaultKey": "activityKey",
                             "readonly": true,
                             "form": "ActivityForm",
+                            "width": 2
+                        },
+                        {
+                            "id":   "location",
+                            "type": "autocomplete",
+                            "name": "Location",
+                            "url": "/location",
+                            "form": "LocationForm",
                             "width": 2
                         },
                         {
@@ -178,14 +212,21 @@ export class GuiModel {
                             "icon": "fa-cubes",
                             "color": "yellow",
                             "page": "locationspage",
-                        },{
+                        },
+                        {
                             "type": "button",
                             "name": "Groups",
                             "icon": "fa-weixin",
                             "color": "wisteria",
                             "page": "groupspage",
                         },
-                           
+                        {
+                            "type": "button",
+                            "name": "Activity",
+                            "icon": "fa-football-ball",
+                            "color": "teal",
+                            "page": "activitypage",
+                        },   
                     ]
                 },
                 {
@@ -209,9 +250,8 @@ export class GuiModel {
                             "color": "blue",
                             "search": true,
                             "url": "/friend",
-                            "form": {
-                                "form": "FriendForm"
-                            }
+                            "page": "friendactivitypage"
+                            
                         },
                     ]
                 },
@@ -237,9 +277,8 @@ export class GuiModel {
                             "color": "blue",
                             "search": true,
                             "url": "/location",
-                            "form": {
-                                "form": "LocationForm"
-                            }
+                            "page": "locationactivitypage"
+                            
                         },
                     ]
                 },
@@ -270,7 +309,125 @@ export class GuiModel {
                     }
                     }
                     ]
-                },                   
+                },
+                {
+                    "id": "activitypage",
+                    "elementList": [
+                    {
+                    "type": "backbutton",
+                    },
+                    {
+                        "type": "list",
+                        "icon": "fa-football-ball",
+                        "color": "teal",
+                        "search": true,
+                        "url": "/activity",
+                        "page": "activityfriendpage"
+                    },
+                        
+                    {
+                    "type": "newButton",
+                    "name": "NewActivity",
+                    "icon": "fa-football-ball",
+                    "color": "green",
+                    "form": {
+                    "form": "AddActivityForm"
+                    }
+                    }
+                    ]
+                },
+                {
+                    "id": "friendactivitypage",
+                    "elementList": [
+                    {
+                    "type": "backbutton",
+                    },
+                    {
+                        "type": "list",
+                        "icon": "fa-football-ball",
+                        "color": "teal",
+                        "search": true,
+                        "url": "/friend/:friendKey/activity",
+                        "form": {
+                        "form": "AddActivityForm"
+                        }
+                    },
+                    {
+                        "type": "button",
+                        "name": "EditFriend",
+                        "form": {
+                            "form": "FriendForm"
+                        }
+                    },
+                    {
+                        "type": "newButton",
+                        "name": "NewActivity",
+                        "icon": "fa-football-ball",
+                        "color": "green",
+                        "formFieldList": 
+                            {
+                                "id":   "activity",
+                                "type": "autocomplete",
+                                "name": "Activity",
+                                "url": "/activity",
+                                "form": "ActivityForm",
+                                "width": 2
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "activityfriendpage",
+                    "elementList": [
+                    {
+                    "type": "backbutton",
+                    },
+                    {
+                        "type": "list",
+                        "icon": "fa-user",
+                        "color": "blue",
+                        "search": true,
+                        "url": "/activity/:activityKey/friend",
+                        "form": {
+                        "form": "FriendForm"
+                        }
+                    },
+                    {
+                        "type": "button",
+                        "name": "EditActivity",
+                        "color": "teal",
+                        "form": {
+                            "form": "AddActivityForm"
+                        }
+                    },
+                    ]
+                },
+                {
+                    "id": "locationactivitypage",
+                    "elementList": [
+                    {
+                    "type": "backbutton",
+                    },
+                    {
+                        "type": "list",
+                        "icon": "fa-football-ball",
+                        "color": "teal",
+                        "search": true,
+                        "url": "/location/:locationKey/activity",
+                        "form": {
+                        "form": "AddActivityForm"
+                        }
+                    },
+                    {
+                        "type": "button",
+                        "name": "EditLocation",
+                        "color": "yellow",
+                        "form": {
+                            "form": "LocationForm"
+                        }
+                    },
+                    ]
+                }                    
             ]
         }
     };
