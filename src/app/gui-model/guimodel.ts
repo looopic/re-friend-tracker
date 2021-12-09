@@ -67,7 +67,15 @@ export class GuiModel {
                         {
                             "type": "okButton",
                             "name": "Ok"
-                        }
+                        },
+                        {
+                            "id": "group",
+                            "type": "autocomplete",
+                            "name": "Group",
+                            "url": "/group",
+                            "form": "GroupForm",
+                            "width": 2
+                        },                           
                     ]
                 },
                 {
@@ -150,7 +158,7 @@ export class GuiModel {
                     "name": "Ok"
                     }
                     ]
-                }                   
+                }                  
             ],
             "pageList": [
                 {
@@ -242,6 +250,17 @@ export class GuiModel {
                     "type": "backbutton",
                     },
                     {
+                        "type": "list",
+                        "icon": "fa-weixin",
+                        "color": "wisteria",
+                        "search": true,
+                        "url": "/group",
+                        "form": {
+                        "form": "GroupForm"
+                        }
+                    },
+                        
+                    {
                     "type": "newButton",
                     "name": "NewGroup",
                     "icon": "fa-weixin",
@@ -251,7 +270,7 @@ export class GuiModel {
                     }
                     }
                     ]
-                }                   
+                },                   
             ]
         }
     };
