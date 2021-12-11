@@ -91,6 +91,14 @@ export class GuiModel {
                             "required": true
                         },
                         {
+                            "id": "comment",
+                            "type": "text",
+                            "name": "Comments",
+                            "width": 2,
+                            "height": 4,
+                            "maxLength": 5000,
+                        },
+                        {
                             "type": "deleteButton",
                             "name": "Delete"
                         },
@@ -115,6 +123,28 @@ export class GuiModel {
                             "name": "Activity",
                             "width": 2,
                             "required": true
+                        },
+                        {
+                            "id":   "location",
+                            "type": "autocomplete",
+                            "name": "Location",
+                            "url": "/location",
+                            "form": "LocationForm",
+                            "width": 2
+                        },
+                        {
+                            "id": "date",
+                            "type": "date",
+                            "name": "Date",
+                            "width": 2
+                        },
+                        {
+                            "id": "comment",
+                            "type": "text",
+                            "name": "Comments",
+                            "width": 2,
+                            "height": 4,
+                            "maxLength": 5000,
                         },
                         {
                             "type": "deleteButton",
@@ -146,14 +176,6 @@ export class GuiModel {
                             "width": 2
                         },
                         {
-                            "id":   "location",
-                            "type": "autocomplete",
-                            "name": "Location",
-                            "url": "/location",
-                            "form": "LocationForm",
-                            "width": 2
-                        },
-                        {
                             "type": "deleteButton",
                             "name": "Delete"
                         },
@@ -178,6 +200,20 @@ export class GuiModel {
                     "name": "GroupName",
                     "width": 2,
                     "required": true
+                    },
+                    {
+                        "id": "creationdate",
+                        "type": "date",
+                        "name": "Created",
+                        "width": 2
+                    },
+                    {
+                        "id": "comment",
+                        "type": "text",
+                        "name": "Comments",
+                        "width": 2,
+                        "height": 4,
+                        "maxLength": 5000,
                     },
                     {
                     "type": "deleteButton",
@@ -289,6 +325,15 @@ export class GuiModel {
                     "type": "backbutton",
                     },
                     {
+                    "type": "newButton",
+                    "name": "NewGroup",
+                    "icon": "fa-weixin",
+                    "color": "green",
+                    "form": {
+                        "form": "GroupForm"
+                        }
+                    },
+                    {
                         "type": "list",
                         "icon": "fa-weixin",
                         "color": "wisteria",
@@ -298,16 +343,6 @@ export class GuiModel {
                         "form": "GroupForm"
                         }
                     },
-                        
-                    {
-                    "type": "newButton",
-                    "name": "NewGroup",
-                    "icon": "fa-weixin",
-                    "color": "green",
-                    "form": {
-                    "form": "GroupForm"
-                    }
-                    }
                     ]
                 },
                 {
@@ -317,6 +352,15 @@ export class GuiModel {
                     "type": "backbutton",
                     },
                     {
+                        "type": "newButton",
+                        "name": "NewActivity",
+                        "icon": "fa-football-ball",
+                        "color": "green",
+                        "form": {
+                        "form": "ActivityForm"
+                        }
+                    },
+                    {
                         "type": "list",
                         "icon": "fa-football-ball",
                         "color": "teal",
@@ -324,16 +368,6 @@ export class GuiModel {
                         "url": "/activity",
                         "page": "activityfriendpage"
                     },
-                        
-                    {
-                    "type": "newButton",
-                    "name": "NewActivity",
-                    "icon": "fa-football-ball",
-                    "color": "green",
-                    "form": {
-                    "form": "AddActivityForm"
-                    }
-                    }
                     ]
                 },
                 {
@@ -341,6 +375,30 @@ export class GuiModel {
                     "elementList": [
                     {
                     "type": "backbutton",
+                    },
+                    {
+                        "type": "button",
+                        "name": "EditFriend",
+                        "color": "green",
+                        "icon": "fa-user",
+                        "form": {
+                            "form": "FriendForm"
+                        }
+                    },
+                    {
+                        "type": "newButton",
+                        "name": "NewActivity",
+                        "icon": "fa-football-ball",
+                        "color": "green",
+                        "form": 
+                            {
+                                "id":   "activity",
+                                "type": "autocomplete",
+                                "name": "Activity",
+                                "url": "/activity",
+                                "form": "AddActivityForm",
+                                "width": 2
+                            }
                     },
                     {
                         "type": "list",
@@ -352,28 +410,6 @@ export class GuiModel {
                         "form": "AddActivityForm"
                         }
                     },
-                    {
-                        "type": "button",
-                        "name": "EditFriend",
-                        "form": {
-                            "form": "FriendForm"
-                        }
-                    },
-                    {
-                        "type": "newButton",
-                        "name": "NewActivity",
-                        "icon": "fa-football-ball",
-                        "color": "green",
-                        "formFieldList": 
-                            {
-                                "id":   "activity",
-                                "type": "autocomplete",
-                                "name": "Activity",
-                                "url": "/activity",
-                                "form": "ActivityForm",
-                                "width": 2
-                            }
-                        }
                     ]
                 },
                 {
@@ -381,6 +417,15 @@ export class GuiModel {
                     "elementList": [
                     {
                     "type": "backbutton",
+                    },
+                    {
+                        "type": "button",
+                        "name": "EditActivity",
+                        "color": "green",
+                        "icon": "fa-football-ball",
+                        "form": {
+                            "form": "ActivityForm"
+                        }
                     },
                     {
                         "type": "list",
@@ -392,14 +437,7 @@ export class GuiModel {
                         "form": "FriendForm"
                         }
                     },
-                    {
-                        "type": "button",
-                        "name": "EditActivity",
-                        "color": "teal",
-                        "form": {
-                            "form": "AddActivityForm"
-                        }
-                    },
+                    
                     ]
                 },
                 {
@@ -409,6 +447,15 @@ export class GuiModel {
                     "type": "backbutton",
                     },
                     {
+                        "type": "button",
+                        "name": "EditLocation",
+                        "icon": "fa-home",
+                        "color": "green",
+                        "form": {
+                            "form": "LocationForm"
+                        }
+                    },
+                    {
                         "type": "list",
                         "icon": "fa-football-ball",
                         "color": "teal",
@@ -416,14 +463,6 @@ export class GuiModel {
                         "url": "/location/:locationKey/activity",
                         "form": {
                         "form": "AddActivityForm"
-                        }
-                    },
-                    {
-                        "type": "button",
-                        "name": "EditLocation",
-                        "color": "yellow",
-                        "form": {
-                            "form": "LocationForm"
                         }
                     },
                     ]
